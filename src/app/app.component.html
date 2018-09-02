@@ -1,8 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div>
-  <h1>
-    {{ title }} Observer
-  </h1>
-  <app-users></app-users>
+  <h1>{{ title }} Observer</h1>
+  <nav>
+    <a routerLink="/dashboard">Dashboard</a>
+    <a routerLink="/users">Users</a>
+  </nav>
+  <router-outlet></router-outlet>
   <app-messages></app-messages>
 </div>
