@@ -3,10 +3,10 @@ import {User} from './user';
 import {Observable, of} from 'rxjs';
 import {MessageService} from './message.service';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs/operators';
+import {catchError, map, tap} from 'rxjs/operators';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
 @Injectable({
@@ -21,6 +21,20 @@ export class UserService {
     private messageService: MessageService
   ) {
   }
+
+  getUserNo404<Data>(id: number): Observable<User> {
+    const url = `${this.usersUrl}/?id=${id}`;
+    return this.http.get<User[]>(url)
+      .pipe(
+        map(users => users[0]), // returns a {0|1} element array
+        tap(h => {
+          const outcome = h ? `fetched` : `did not find`;
+          this.log(`${outcome} user id=${id}`);
+        }),
+        catchError(this.handleError<User>(`getUser id=${id}`))
+      );
+  }
+
 
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.usersUrl)
@@ -49,7 +63,7 @@ export class UserService {
    * @param operation - name of the operation that failed
    * @param result - optional value to return as the observable result
    */
-  private handleError<T> (operation = 'operation', result?: T) {
+  private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure

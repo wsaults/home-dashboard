@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import {User} from '../user';
+import {UserService} from '../user.service';
 
 import {
 debounceTime, distinctUntilChanged, switchMap
 } from 'rxjs/operators';
-import {UserService} from '../user.service';
 
 
 @Component({

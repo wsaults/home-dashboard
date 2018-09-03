@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule } from '@angular/common/http';
 import {AppComponent} from './app.component';
 import {UsersComponent} from './users/users.component';
 import {UserDetailComponent} from './user-detail/user-detail.component';
@@ -33,7 +33,7 @@ import { UserSearchComponent } from './user-search/user-search.component';
       InMemoryDataService, { dataEncapsulation: false }
     )
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule {
