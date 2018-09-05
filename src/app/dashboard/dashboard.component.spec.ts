@@ -7,6 +7,7 @@ import {HttpClient, HttpClientModule, HttpHandler} from '@angular/common/http';
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
   let fixture: ComponentFixture<DashboardComponent>;
+  let subject;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -21,6 +22,7 @@ describe('DashboardComponent', () => {
     fixture = TestBed.createComponent(DashboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    subject = fixture.debugElement.nativeElement;
   });
 
   it('should create', () => {
@@ -28,8 +30,17 @@ describe('DashboardComponent', () => {
   });
 
   it('should contain the header to match', () => {
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h3').textContent).toEqual('Our Family');
+    expect(subject.querySelector('h3').textContent).toEqual('Dashboard');
   });
+
+  // describe('Users', () => {
+  //   it('should contain the Test1 user', function () {
+  //     console.log(component.users);
+  //     expect(component.users[0].name).toEqual('Test1');
+  //   });
+  //
+  //   it('should contain the Dad tile', function () {
+  //     expect(subject.querySelectorAll('.user')[0].textContent).toEqual('Dad');
+  //   });
+  // });
 });
