@@ -2,6 +2,7 @@
   "name": "home-dashboard",
   "version": "0.0.0",
   "scripts": {
+    "pcf": "cf push home-observer -b https://github.com/cloudfoundry/nodejs-buildpack",
     "ng": "ng",
     "dev": "ng serve --open",
     "start": "node server.js",
