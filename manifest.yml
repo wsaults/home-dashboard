@@ -1,0 +1,8 @@
+---
+applications:
+- name: home-observer
+  memorty: 1GB
+  disk_quota: 1GB
+  instances: 1
+  buildpacks: 
+    - https://github.com/cloudfoundry/nodejs-buildpack
