@@ -11,6 +11,7 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
 import {InMemoryDataService} from './in-memory-data.service';
 import { UserSearchComponent } from './user-search/user-search.component';
+import { IsaacPageComponent } from './isaac-page/isaac-page.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { UserSearchComponent } from './user-search/user-search.component';
     UserDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    UserSearchComponent
+    UserSearchComponent,
+    IsaacPageComponent
   ],
   imports: [
     BrowserModule,
